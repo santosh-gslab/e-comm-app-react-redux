@@ -57,7 +57,6 @@ class CartPage extends Component {
 
     render() {
         const {clicked} = this.state;
-        const {cartItems} = this.props.cart;
         return(
             <Grid container spacing={2} direction="column">
                 <Grid item>
@@ -72,10 +71,20 @@ class CartPage extends Component {
                                 })
                             }
                         </Grid>
+                        <Grid item>
+                            {
+                                (!(this.props.cart && this.props.cart.length > 0) && ( JSON.parse( localStorage.getItem("cartItems")) && JSON.parse( localStorage.getItem("cartItems")).length > 0)) &&
+                                JSON.parse( localStorage.getItem("cartItems")).map((cartDetails) => {
+                                    return(
+                                        this.renderCart(cartDetails)
+                                    )
+                                })
+                            }
+                        </Grid>
                     </Grid>
                 </Grid>
                 {
-                    !(this.props.cart && this.props.cart.length) &&
+                    (!(this.props.cart && this.props.cart.length > 0) && !( JSON.parse( localStorage.getItem("cartItems")) && JSON.parse( localStorage.getItem("cartItems")).length > 0)) &&
                     <Grid item><h3 style={{color: 'red'}}>Cart is Empty!!!</h3></Grid>
                 }
             
