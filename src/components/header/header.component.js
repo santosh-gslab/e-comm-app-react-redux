@@ -20,7 +20,7 @@ class Header extends Component {
                     </Grid>
                 </Grid>  
                 <Grid item xs={4} style={Styles.menuItem}>
-                    <NavLink to="/cart" activeClassName="activeLink" style={{ textDecoration: 'none' }}>Cart({this.props.cart.length})</NavLink>
+                    <NavLink to="/cart" activeClassName="activeLink" style={{ textDecoration: 'none' }}>Cart({this.props.cart.length || JSON.parse( localStorage.getItem("cartItems")).length})</NavLink>
                 </Grid>
             </Grid>
         )
