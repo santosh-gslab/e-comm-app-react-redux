@@ -8,6 +8,7 @@ class Header extends Component {
     constructor(props) {
         super(props);
     }
+
     render(){
         console.log(this.props.cart.length);
         return (

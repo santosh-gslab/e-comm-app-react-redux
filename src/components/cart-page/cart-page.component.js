@@ -16,7 +16,8 @@ class CartPage extends Component {
         }
     }
 
-    changeClickedState() {
+    changeClickedState(event) {
+        event.preventDefault();
         this.setState({clicked: true});
     }
 
@@ -89,8 +90,8 @@ class CartPage extends Component {
                 }
             
                 <Grid item>
-                    {!clicked && <Button type="submit" variant="contained" color="primary" onClick={()=>this.changeClickedState()}>CHECKOUT</Button>}
-                    {clicked && <CheckoutForm></CheckoutForm>}
+                    {!clicked && <Button type="submit" variant="contained" color="primary" onClick={(e)=>this.changeClickedState(e)}>CHECKOUT</Button>}
+                    {clicked && <CheckoutForm history={this.props.history}></CheckoutForm>}
                 </Grid>
             </Grid>
         )
