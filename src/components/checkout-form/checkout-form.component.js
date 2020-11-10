@@ -24,7 +24,7 @@ class CheckoutForm extends Component {
         let emailV = this.state.emailValid;;
         let cardV = this.state.cardValid;
         if( nameV && phoneV && emailV && cardV) {
-            this.setState({purchased: true});
+            this.setState({purchased: true, formValid: true});
             setTimeout(() => {
                 this.props.history.push("/products");
             }, 1000);
