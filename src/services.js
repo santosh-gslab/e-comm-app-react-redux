@@ -15,8 +15,14 @@ function returnURL( api) {
 
 function returnRegex(type) {
     switch( type) {
+        case 'name':
+            return /\b([A-ZÀ-ÿa-z][-,a-z. ']+[ ]*)+/
         case 'email':
-            return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+        case 'phone':
+            return /^[0-9]{10}$/
+        case 'cardnumber':
+            return /^[0-9]{16}$/
     }
 }
 
